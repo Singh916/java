@@ -1,0 +1,317 @@
+purely object oriented programming lang 
+compiled && interpreted lang 
+source_code is compiled to bytecode & the interpreted to machine code 
+JDK-java development kit 
+JRE-java runtime environment 
+
+Basic structure of java programs->
+class is a template in which we can create objects 
+class are useful for grouping similar functions 
+For classes we use PascalConvention && for function we use camelCaseConention
+
+reserved keyboard eg. main 
+
+Scanner class is used to take user input 
+sc.next() reads only a word 
+sc.nextLine() reads whole line 
+
+Precedence && associativity when there is a tie in operator
+
+Strings are immutable in java 
+we can use : System.out.printf(),System.out.format(); to display the output in java
+
+There is one enhanced switch statement in which we can print multiple lines 
+
+Arrays is a collection  of similar types of data
+    int [] arr;//declaration
+    arr = new int[5];//memory allocation
+    int [] arr = new int[5];//Declaration and memory allocation
+    int [] arr = {10,70}; // declare and initialize
+    
+For each loop in java
+	  for(int x: arr) {
+	   System.out.println(x);   
+	  }
+	  
+multidimensional array 
+   2-d array 
+    int [][] arr;
+    arr = new int [2][3];
+    
+A method is a function written inside a class
+You can call static method from a static method
+
+A method can be called by creating  an object of class in which the method exists followed by the method call.
+  e.g
+     Cal obj = new Cal();
+     obj.mySum(a,b);
+
+     
+void return type : when we dont want our method to return anything 
+
+static keyword is used to associate a method of a given class with the class rather that the object.They are shared by all the objects.
+	We can call static methods wihtout use of objects.
+
+Note: In case of Arrays , reference is passes.Same is case for obbject passing to methods.
+
+Method Overloading: 2  or more methods can hace same name but different parameters such methods are called overloaded methods.
+	eg. void foo();void foo(int a); void foo(int a,int b);//Arguments are actual
+	Method Overloading cannot be performed by changing the return type of methods.
+
+Variable Arguments(VarArgs)
+	A function with vararg can be created in java using the following syntax:
+
+	public static void foo(int ...arr) {
+	   //arr is available here as int []arr
+	 }
+	foo can be called with 0 or more arguments like foo(7);foo(7,8,9);
+	We can also create a function bar like 
+	 public static void bar(int a,int arr) {
+	  //code
+	 } 
+	bar can be called as bar(1);bar(1,2);
+
+OOPs: solving a problem by creating objects is called OOPs
+	DRY principle- Do not repeat yourself 
+	class: It is a blueprint for creating objects.
+	Object: It is an instantiation of a class.Memory is a	llocated only after object instantiation.
+	
+	OOPs Terminology:
+	Abstraction: Hiding internal details (show only essential info)
+	Encapsulation: The act of  putting various components together (in a capsule) eg.laptop is a single entity with 			 +speaker+storage in a single box.
+	In java, encapsualtion simply means that sensitive data can be hidden from users.
+	Inheritance: The act of driving new things from existing things.
+	eg.rickshaw to e-rickshaw
+	Polymorphism:One entity many forms
+	eg. smartphone can be used as phone as well as calculator 
+
+	One java file can have only one public class
+	
+Construcor: A member function user to initialize an object while creating it.It has no return type
+	Inheritance in java is doe by using extends keyword.  
+	Java doesn't support multiple inheritance i.e 2 classes can't be superclass for a subclass
+
+	When we create an object of derived class then the base class constructor is called first then derived class constructor is called.	
+	constructors during constructor overloading:
+	when there are multiple constructors in parent class the constructir w/o any parameter is called from child class.
+	If we want to call the constructor with parameteres from parent class, we can use super Keyword
+	super(a,b);calls the constructor from parent class which takes 2 variables.
+
+this && super keyword:
+	this: It is a way for us to reference an object of class which is being created/referenced. eg- this.area=2;
+	super:A reference variable used to refer immediate parent class object.
+	super can be used in - refer immediate parent class instance variable.
+	 			invoke parent class methods.
+	 			invoke parent class constructors.
+
+Method overrriding in java:
+	If a child class implements same method present in parent class again, it is known as method overriding means redefining methods os super class.
+
+
+Dynamic method dispatch(RUNTIME POLYMORPHISM):
+	eg- There are 2 classes Super and Sub
+	Super class contains methods meth1 & meth2
+	Sub class contains methods meth2(overriden from Super class) & meth3
+
+	Case1: Super obj = new Sub();//allowed
+	       obj.meth2();//meth2() of Sub class will be called (method of object)
+	       obj.meth3();// not allowed 
+	Case2: Sub obj = new Super();//not allowed       	
+
+	    
+Abstract class: If a class includes abstract methods then the class itself must be declared abstract.
+eg-public abstract class Phone{
+     abstract void switchOff();
+   }
+   
+Abstract method : A method i.e declared without an implementation.
+	eg-abstract voif moveTo(double x,double y);
+
+	When an abstract class is subclassed,the subclass ususally provides implementations for all the methods in parent class. If it doesn't it must be declared abstract. 
+	Note: It is possible to create reference of an abstract class.
+	      It is not possible to create an object of an abstract class. 
+	      We can also assign reference of an abstract class to the object of a concrete subclass.
+	      
+Note: We can extend only one class but we can implements any number of interfaces.	      	      
+	       
+Interfaces:Group of related methods with empty bodies.
+	If a class implements an interface, It is necessary to define all methods of interfaces but not all variables.
+
+Defaults methods:
+	An Interface can have static and default methods.Default methods enable us to add new functionality to existing interfaces.
+	Interfaces can also include private methods for default methods to use.
+	      	 			
+Inheritance in Interfaces:
+	Interface can extend another interfaces
+	eg-interface a{
+	      void m1();
+	   }
+	   
+	   interface b extends a {
+	      void m2(); 
+	   }
+	   
+Polymorphism in Interfaces:
+	 eg- Gps g = new SmartPhone();//can only use GPS methods (jiska ref. banta hai uske hi methods call ke skte hein)
+	 
+Interpreter vs compiler 
+	Interpreter- translate one statement at a time into machine code.Partial execution if error.
+	Compiler- scans the entire program and translates whole of it into machine code.Noexecution if an error occurs.
+	
+Java is a hybrid language -> Both compiled as well as interpreted.
+	Java file is compiled to class file(byte code) usind javac(java compiler)
+	JVM can be used to interpret this bytecode.
+	This byte code can be talen to any platform for execution.
+	hence java is paltform Independent.
+
+Executing a java program:
+      javac Filename.java -> compiled
+      java File  -> Interpreted 
+
+Pacakges:Used to group related classes.
+         2 types of apckages:
+         Built in packages -> java API
+         User defined pacakges-> custom packages
+Using a package:
+  	import java.lang.*
+  	import java.lang.String
+        	
+Creating a pacakge:
+      	javac Filename.java -> create Filename.class
+	javac -d . Filename.java -> creates a package folder
+ 			
+Access Modifiers in Java:
+	They determine whether other classes can use a particular field or invoke a particular method can be public,private,protected or default(no modifier)
+
+	Modifier      class    package	   subclass	 world
+	public		Y        Y	     Y		   Y 
+	protected	Y	 Y	     Y		   N	
+	default(no)	Y	 Y  	     N		   N 	
+	private 	Y	 N	     N		   N	
+		
+   
+Multithreading:
+	It is used to achieve multitasking.
+	Threads use shared memory area & faster context switching.
+	Thread is light-weight whereas a process is heavyweight.
+
+Creating a thread:
+There are 2 ways to create a thread in java.
+	1.By extending Thread class.
+	2.By implementing Runnable Interface.
+
+ 
+Life cycle of a Thread:
+
+	(1)New -> (2)runnable -> (3)running -> (5)terminated
+		  \        /
+		   (4)Non Runnable(Blocked)
+		    
+	New- Instance of thread created which is not yet started by invoking start();
+	Runnable- After invocation of start() && before it is selected to be run by scheduler
+	Running- After thread scheduler has selected it.
+	Non Runnable- Thread alive, not eligible to run.
+	Terminated- run() method has exited. 
+	    
+Java Thread Priority:
+	We can set the priority for different threads.
+
+Errors & Exceptions in java-
+  syntax, Logical && runtime errors.
+  
+Exception: It is an event that occurs when a program is executed disrupting the normal flow of instructions.
+	There are 2 types of exceptions in java:
+	1.Checked exception.
+	2.Unchecked exception.
+
+	Commonly occuring exceptions
+	1. Null pointer exception
+	2. Arithmetic exception
+	3. Array Index out of bound exception
+	4. Illegal Argument exception
+	5.Number Format exception
+	 
+Try-Catch 
+	try {
+	 //code
+	}catch(Exception e) {
+
+	} 
+
+We can write our custom exceptions using exception class in Java.
+
+ public class MyException extends Exceprion {
+   //overriden methods
+ }
+
+throw keyword: It is used to throw a exceptio explicitly by the programmer.
+	We can  throw user defined exceptions:
+	   		throw new MyExceptio("Exception thrown");
+	   		
+throws keyword:It is used to declare an exception gives a informatio to the programmer that there might be an exception so , its better to be prepared with a try catch block 
+	eg- public void calcualte(int a, int b) throws !Exception {
+	   //code
+	   }   		 
+	 
+Finally Block: finally block contais code which is always executed whether the exception is handled or nnot.
+	used to execute code containing instruction to release the system resources, close a connection etc.
+
+   	 
+Java Collection Framework:It is a group of object which provides classes and Interfaces for us to be able to write code quickly and efficiently.
+	eg- ArrayList(For variable size collection)
+	    Set(For distinct collection)
+	    stack(A LIFO data structure)
+	    HashMap(For storing key-value pairs)
+
+
+ArrayList:
+	 ArrayList<Integer> l1= new ArrayList<>();
+	 To access elements use method   - list_name.get(i);
+	 To add an element use - list_name.add(value);
+	 To add an element at an particular index - list_name.add(index,value);
+	 To get an index of element - list_name.indexOf(value);//returns -1 if vlaue not found
+	 To get an index of last element - list_name.lastIndexOf(value);
+	 To remove an element - list_name.remove(value);//only removes the first occurrence
+	 To set a value at any index - list_name.set(index,value);
+	 
+ArrayDeque:
+        Read documentation for methods.
+        
+
+HashSet: Collection of unique elements.
+        eg- HashSet<Integer> h1= new HashSet<>();
+
+Annotations in java: It provides metadata to class/methods.
+                     eg- @Override
+                     
+Functional Interface: Interface with only one method.
+
+Java Anonymous classes:
+	  Enables you to make your code more concise.They enable you to declare and instantiate a class at the same time.Local classes except that they do not have a name.
+	   
+Lambda expression:
+	A lambda expression is a short block of code which takes in parameters and returns a value. Lambda expressions are similar to methods, but they do not need a name and they can be implemented right in the body of a method.       	 
+	 
+
+File Handling in java:
+We can use the file class in java to create a file object:
+	 CreateNewFile() method -> creates a file object
+	 For reading files we can use the same Scanner class and supply it a file object
+	 To delete a file in java we can use file object delete() method. 
+  
+ 
+	 
+      
+  
+
+    
+    
+
+
+
+
+
+	  
+  
+
+
